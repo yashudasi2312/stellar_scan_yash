@@ -1,7 +1,8 @@
 import './CSS/HomeCSS.css';
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import videoFile from './assets/stellar-scan.mp4';
+// import videoFile from './assets/stellar-scan.mp4';
+import videoFile2 from './assets/stellar-scan-two.mp4';
 import muteIcon from './icons/audio-off-svgrepo-com.svg';
 import unmuteIcon from './icons/audio-svgrepo-com.svg';
 import contactIcon from './icons/telephone-svgrepo-com.svg';
@@ -147,7 +148,7 @@ function Home() {
                 playsInline
                 muted
             >
-                <source src={videoFile} type="video/mp4" />
+                <source src={videoFile2} type="video/mp4" />
             </video>
 
             <button className="mute-toggle" onClick={toggleMute}>
