@@ -1,0 +1,269 @@
+@import url('https://fonts.googleapis.com/css2?family=Matangi&display=swap');
+
+body {
+    font-family: 'Matangi', sans-serif;
+    letter-spacing: 1px;
+    color: white;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: black;
+    overflow-x: hidden;
+    max-width: 100vw;
+}
+
+.fade-wrapper {
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+    min-height: 100vh;
+    background: black;
+    padding: 2rem;
+}
+
+.fade-wrapper.visible {
+    opacity: 1;
+    background: linear-gradient(-45deg, #0a0a0a, #111b2e, #1a2433, #0d1117);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+.fade-fadein {
+    opacity: 0;
+    transition: opacity 0.8s ease 0.15s;
+}
+
+
+.fade-wrapper.visible .fade-fadein {
+    opacity: 1;
+}
+
+
+.favorite-card {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    transition-delay: 0.5s;
+}
+
+.fade-wrapper.visible .favorite-card {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.header-buttons {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+
+.favorites-header {
+  display: block;
+  text-align: center;
+  margin-top: 4vh;
+  padding: 20px;
+}
+
+
+.no-favorites {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+    font-size: 1.2em;
+    color: #ccc;
+}
+
+.home-icon {
+    position: absolute;
+    top: 3%;
+    left: 2%;
+    cursor: pointer;
+    z-index: 999;
+}
+
+.home-icon img {
+    width: 32px;
+    height: 32px;
+    transition: transform 0.3s ease;
+}
+
+.home-icon img:hover {
+    transform: scale(1.1);
+}
+
+.live-indicator {
+    font-size: 0.8em;
+}
+
+.last-update {
+    font-style: italic;
+    color: #666;
+    margin-top: 8px;
+}
+
+.loading {
+    text-align: center;
+    padding: 20px;
+    font-size: 1.2em;
+}
+
+.favorites-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.favorite-card {
+    background: rgba(29, 29, 29, 0.3);
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    min-width: 220px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.3s ease;
+    transform: translateY(0);
+}
+
+.favorite-card:hover {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+}
+
+.favorite-card h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.3rem;
+}
+
+.favorite-card p {
+    margin: 0.2rem 0;
+    font-size: 0.95rem;
+}
+
+.card-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.go-button {
+    margin: 1% 0% 1% 0%;
+    padding: 0.5rem 0.5rem;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    font-family: 'Matangi', sans-serif;
+    background-color: #0c85ff;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.go-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(120deg,
+            rgba(255, 255, 255, 0.15) 0%,
+            rgba(255, 255, 255, 0.35) 50%,
+            rgba(255, 255, 255, 0.15) 100%);
+    transform: skewX(-25deg);
+    z-index: 2;
+    transition: left 0.5s ease;
+}
+
+.go-button:hover::before {
+    left: 130%;
+}
+
+.go-button:hover {
+    background-color: #005fc1;
+    box-shadow: 0 0 12px rgba(12, 133, 255, 0.4);
+}
+
+.clear-all-button {
+    font-family: 'Matangi', sans-serif;
+    padding: 0.8rem 1.7rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(206, 16, 16, 0.1);
+    color: rgb(206, 16, 16);
+    border-radius: 10px;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.clear-all-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(120deg,
+            rgba(255, 255, 255, 0.05),
+            rgba(255, 255, 255, 0.15),
+            rgba(255, 255, 255, 0.05));
+    transform: skewX(-25deg);
+    transition: left 0.5s ease;
+    z-index: 1;
+}
+
+.clear-all-button:hover::before {
+    left: 130%;
+}
+
+.clear-all-button:hover {
+    background-color: rgb(173, 14, 14);
+    color: white;
+    box-shadow: 0 0 15px rgba(206, 16, 16, 0.4);
+    transform: scale(1.05);
+}
+
+.remove-button {
+    padding: 0.5rem 0.5rem;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    transition: background 0.3s;
+    font-family: 'Matangi', sans-serif;
+    cursor: pointer;
+    background-color: gray;
+}
+
+.remove-button:hover {
+    background-color: rgb(206, 16, 16);
+}

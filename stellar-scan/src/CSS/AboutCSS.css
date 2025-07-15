@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Matangi&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #000000;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: 'Matangi', sans-serif;
+
+    color: #f1f1f1;
+    overflow-x: hidden;
+}
+
+.about-container {
+    position: relative;
+    letter-spacing: 2px;
+    margin: 0rem 4rem;
+    padding-bottom: 7.6rem;
+    font-family: 'Matangi', sans-serif;
+    min-height: 100vh;
+    z-index: 1;
+}
+
+.stars-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle linear infinite;
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
+}
+
+@keyframes twinkle {
+    0%, 100% { 
+        opacity: 0.3;
+        transform: scale(0.8);
+        box-shadow: 0 0 4px rgba(255, 255, 255, 0.6);
+    }
+    25% { 
+        opacity: 0.8;
+        transform: scale(1.1);
+        box-shadow: 0 0 8px rgba(255, 255, 255, 0.9);
+    }
+    50% { 
+        opacity: 1;
+        transform: scale(1.3);
+        box-shadow: 0 0 12px rgba(255, 255, 255, 1);
+    }
+    75% { 
+        opacity: 0.6;
+        transform: scale(0.9);
+        box-shadow: 0 0 6px rgba(255, 255, 255, 0.7);
+    }
+}
+
+
+.fade-in-title {
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out 0.5s forwards;
+}
+
+.fade-in-content {
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out 1.5s forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.about-container h1 {
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 3rem;
+    letter-spacing: 4px;
+    font-weight: bold;
+}
+
+.about-container p {
+    line-height: 1.6;
+    font-size: 1.1rem;
+    margin-top: 2rem;
+}
+
+
+.stars-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    animation: float 20s infinite ease-in-out;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+

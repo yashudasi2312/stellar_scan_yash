@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Matangi&display=swap');
+
+.sidebar {
+    position: fixed;
+    top: 8%;
+    left: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    z-index: 200;
+}
+
+.sidebar-icon {
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    padding: 0.4rem 0.6rem;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    text-decoration: none;
+    color: inherit;
+}
+
+.sidebar-icon img {
+    width: 34px;
+    height: 34px;
+    transition: transform 0.5s ease;
+}
+
+.sidebar-label {
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.5s ease;
+    margin-left: 8px;
+    font-family: 'Matangi', sans-serif;
+    color: white;
+    font-size: 1.2rem;
+    white-space: nowrap;
+}
+
+
+.sidebar-icon:hover img {
+    transform: scale(0.9);
+}
+
+.sidebar-icon:hover .sidebar-label,
+.sidebar-icon.show-label .sidebar-label {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+.sidebar-info-wrapper {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in;
+    margin-top: -1.5rem; 
+}
+
+.sidebar-info-wrapper.expand {
+    max-height: 60vh;
+    margin-top: -1.5rem; 
+}
+
+.sidebar-info {
+    color: white;
+    font-size: 0.95rem;
+    padding-left: 3.1rem;
+    padding-right: 0.5rem;
+    max-width: 20vw;
+    font-family: 'Matangi', sans-serif;
+    line-height: 1.4;
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.sidebar-info h4 {
+  margin: 0 0 0.5rem 0;
+  font-weight: 600;
+  color: #fff;
+  font-family: 'Matangi', sans-serif;
+}
+
+.satellite-info-panel {
+    position: fixed;
+    top: 1%;
+    margin-top: 2%;
+    right: 20px;
+    background: rgba(17, 17, 17, 0.4);
+    color: white;
+    padding: 4%;
+    border-radius: 12px;
+    font-size: 1.3rem;
+    z-index: 1000;
+    width: 15vw;
+    max-width: 250px;
+    min-width: 180px;
+    font-family: monospace;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@media (max-width: 768px) {
+    .satellite-info-panel {
+        right: 10px;
+        left: 10px;
+        margin: 0 auto;
+        width: auto;
+        text-align: center;
+    }
+}
+
+.satellite-info-panel div {
+    font-family: 'Matangi', sans-serif;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+    font-weight: 500;
+}
+
+.satellite-info-panel strong {
+    font-weight: 600;
+}
+
+.star-toggle {
+  position: absolute;
+  top: 2vw;
+  right: 2vw;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.star-toggle img {
+  width: 30px;
+  height: 30px;
+  transition: transform 0.5s ease;
+}
+
+.api1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    position: fixed;
+    bottom: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    color: white;
+    opacity: 0.45;
+    font-size: 0.7rem;
+    font-family: 'Matangi', sans-serif;
+    z-index: 1000;
+    text-align: center;
+    width: 80%;
+    pointer-events: none;
+}
