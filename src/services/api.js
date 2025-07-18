@@ -3,7 +3,7 @@
 // Call your backend to get country from lat/lon
 export async function fetchCountry(lat, lon) {
   try {
-    const res = await fetch("http://localhost:8080/api/country", {
+    const res = await fetch("https://9a0a2184596d.ngrok-free.app/api/country", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

@@ -1,7 +1,7 @@
 import './CSS/HomeCSS.css';
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import videoFile2 from './assets/stellar-scan-two.mp4';
+// No import needed for public assets, use relative path in <source src="..."/>
 import muteIcon from './icons/audio-off-svgrepo-com.svg';
 import unmuteIcon from './icons/audio-svgrepo-com.svg';
 import contactIcon from './icons/telephone-svgrepo-com.svg';
@@ -147,7 +147,7 @@ function Home() {
                 playsInline
                 muted
             >
-                <source src={videoFile2} type="video/mp4" />
+                <source src="/stellar-scan-two.mp4" type="video/mp4" />
             </video>
 
             <button className="mute-toggle" onClick={toggleMute}>

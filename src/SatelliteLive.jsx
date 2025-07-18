@@ -16,7 +16,7 @@ export default function SatelliteLive({ tle1, tle2, satName, onUpdate }) {
 
   const fetchCountryFromBackend = async (lat, lon) => {
     try {
-      const res = await fetch(`http://localhost:8080/api/country?lat=${lat}&lon=${lon}`);
+      const res = await fetch(`https://9a0a2184596d.ngrok-free.app/api/country?lat=${lat}&lon=${lon}`);
       if (!res.ok) throw new Error("Failed to fetch country");
       const result = await res.text();
       setCountry(result);
