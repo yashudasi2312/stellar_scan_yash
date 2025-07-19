@@ -1,7 +1,6 @@
 import './CSS/HomeCSS.css';
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-// No import needed for public assets, use relative path in <source src="..."/>
 import muteIcon from './icons/audio-off-svgrepo-com.svg';
 import unmuteIcon from './icons/audio-svgrepo-com.svg';
 import contactIcon from './icons/telephone-svgrepo-com.svg';

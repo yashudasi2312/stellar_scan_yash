@@ -27,6 +27,7 @@ function getSunPositionFromTime() {
   const L = q + (1.915 * Math.sin(g) + 0.020 * Math.sin(2 * g)) * (Math.PI / 180);
   const e = 23.439 * (Math.PI / 180);
 
+  
   const x = Math.cos(L);
   const y = Math.cos(e) * Math.sin(L);
   const z = Math.sin(e) * Math.sin(L);

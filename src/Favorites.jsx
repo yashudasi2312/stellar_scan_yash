@@ -13,7 +13,7 @@ function Favorites() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const timeout = setTimeout(() => setIsPageVisible(true), 100); // Start transition almost immediately
+    const timeout = setTimeout(() => setIsPageVisible(true), 100); 
     return () => clearTimeout(timeout);
   }, []);
 
@@ -39,7 +39,7 @@ function Favorites() {
 
   const fetchCountryFromBackend = async (lat, lon) => {
     try {
-      const res = await fetch(`https://9a0a2184596d.ngrok-free.app/api/country?lat=${lat}&lon=${lon}`);
+      const res = await fetch(`http://localhost:8080/api/country?lat=${lat}&lon=${lon}`);
       if (!res.ok) throw new Error("Failed to fetch country");
       return await res.text();
     } catch (err) {

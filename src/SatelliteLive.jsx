@@ -13,22 +13,19 @@ export default function SatelliteLive({ tle1, tle2, satName, onUpdate }) {
   const scale = 1 / 6371;
   const satrec = satellite.twoline2satrec(tle1, tle2);
 
-
   const fetchCountryFromBackend = async (lat, lon) => {
     try {
-      const res = await fetch(`https://9a0a2184596d.ngrok-free.app/api/country?lat=${lat}&lon=${lon}`);
+      const res = await fetch(`http://localhost:8080/api/country?lat=${lat}&lon=${lon}`);
       if (!res.ok) throw new Error("Failed to fetch country");
       const result = await res.text();
       setCountry(result);
-
-
       onUpdate({ name: satName, lat, lon, country: result });
     } catch (err) {
       console.error("❌ Error fetching country from backend:", err);
       setCountry("Unknown");
+      onUpdate({ name: satName, lat, lon, country: "Unknown" });
     }
   };
-
 
   useEffect(() => {
     const updateLocation = () => {
@@ -41,12 +38,12 @@ export default function SatelliteLive({ tle1, tle2, satName, onUpdate }) {
       const lat = satellite.degreesLat(geo.latitude);
       const lon = satellite.degreesLong(geo.longitude);
 
-      setPositionGeo(lat, lon);
-      fetchCountryFromBackend(lat, lon);
+      setPositionGeo(posVel.position);
+      fetchCountryFromBackend(lat, lon); // this will also call onUpdate()
     };
 
-    const setPositionGeo = (lat, lon) => {
-      const ecf = satellite.eciToEcf(satellite.propagate(satrec, new Date()).position, satellite.gstime(new Date()));
+    const setPositionGeo = (eciPos) => {
+      const ecf = satellite.eciToEcf(eciPos, satellite.gstime(new Date()));
       const x = ecf.x * scale;
       const y = ecf.z * scale;
       const z = -ecf.y * scale;
@@ -54,10 +51,9 @@ export default function SatelliteLive({ tle1, tle2, satName, onUpdate }) {
     };
 
     updateLocation();
-    const interval = setInterval(updateLocation, 2000);
+    const interval = setInterval(updateLocation, 5000);
     return () => clearInterval(interval);
   }, [tle1, tle2]);
-
 
   useFrame(() => {
     const now = new Date();
