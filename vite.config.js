@@ -7,6 +7,6 @@ export default defineConfig({
     include: ['@react-three/fiber', '@react-three/drei', 'three']
   },
   server: {
-    allowedHosts: ['95acd96005af.ngrok-free.app']  // ✅ No https:// here
+    allowedHosts: ['95acd96005af.ngrok-free.app']  
   }
 })
