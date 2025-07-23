@@ -94,7 +94,7 @@ function Home() {
     useEffect(() => {
         const timers = [];
         timers.push(setTimeout(() => setShowParagraph(true), 1500));
-        timers.push(setTimeout(() => setShowFavIcon(true), 1500)); // 👈 Added
+        timers.push(setTimeout(() => setShowFavIcon(true), 1500)); 
         timers.push(setTimeout(() => setShowDetect(true), 2000));
         timers.push(setTimeout(() => setShowOr(true), 2150));
         timers.push(setTimeout(() => setShowCoordsText(true), 2250));

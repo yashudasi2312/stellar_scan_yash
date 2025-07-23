@@ -39,7 +39,7 @@ export default function SatelliteLive({ tle1, tle2, satName, onUpdate }) {
       const lon = satellite.degreesLong(geo.longitude);
 
       setPositionGeo(posVel.position);
-      fetchCountryFromBackend(lat, lon); // this will also call onUpdate()
+      fetchCountryFromBackend(lat, lon); 
     };
 
     const setPositionGeo = (eciPos) => {
